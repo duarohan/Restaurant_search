@@ -23,13 +23,18 @@ python -m spacy link en_core_web_md en
 
 
 ## Train the RASA NLU (this creates NLU model in the models folder)
-rasa train nlu
-rasa shell nlu
+- rasa train nlu
+- rasa shell nlu
 
 ## Train the RASA Core (this creates training model in the models folder)
-rasa train
-rasa shell
+- rasa train
+- rasa shell
 
+## Update the config file with email_id and password
+- config/base.json
+  -"senders_email": "email_id" ,
+  -"senders_password": "password"
+- In case of gmail, do allow less secure apps to access you email
 ## Actions Defined for bots (Has to be started before running rasa shell/ rasa interactive)
 rasa run actions
 
