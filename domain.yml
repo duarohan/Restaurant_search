@@ -1,19 +1,36 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
-- affirm
 - restaurant_search
+- affirm
+- share_email
 - greet
 - goodbye
 - stop
 entities:
 - cuisine
 - location
-- price
+- mail_id
 - people
+- price
 slots:
   cuisine:
     type: text
+    influence_conversation: true
   location:
     type: text
+    influence_conversation: true
+  price:
+    type: text
+    influence_conversation: true
+  mail_id:
+    type: text
+    influence_conversation: true
+  restaurant_list:
+    type: text
+    influence_conversation: true
 responses:
   utter_ask_cuisine:
   - buttons:
@@ -30,6 +47,29 @@ responses:
   - text: how can I help you?
   utter_ask_location:
   - text: In what location?
+  utter_ask_price:
+  - buttons:
+    - payload: low
+      title: Less than 300
+    - payload: mid
+      title: 300-700
+    - payload: high
+      title: More than 700
+    text: What the average budget for two people?
+  utter_ask_copy:
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: Should I send you details of all the restaurants on email?
+  utter_ask_email:
+  - text: Can you share your email id?
+  - text: To what email id should I send it to?
+  utter_mail_sent:
+  - text: The mail has been sent.
+  - text: Please check you email. Thanks.
+  - text: Mail Sent. Have a nice day.
   utter_default:
   - text: i cannot understand
   utter_goodbye:
@@ -42,9 +82,13 @@ responses:
 actions:
 - action_search_restaurants
 - action_send_mail
+- utter_ask_copy
 - utter_ask_cuisine
+- utter_ask_email
 - utter_ask_howcanhelp
 - utter_ask_location
+- utter_ask_price
 - utter_default
 - utter_goodbye
 - utter_greet
+- utter_mail_sent
