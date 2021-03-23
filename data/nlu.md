@@ -12,7 +12,12 @@
 - sounds really good
 - thanks
 - Yes
+- Thanks
+- Thank
+- Thank you
 
+## intent:negative
+- No
 ## intent:goodbye
 - bye
 - goodbye
@@ -52,6 +57,8 @@
 - [South Indian](cuisine)
 - [North Indian](cuisine)
 - [Italian](cuisine)
+- [American](cuisine)
+- [Mexican](cuisine)
 - [Chinese]{"entity": "cuisine", "value": "chinese"}
 - [chinese](cuisine)
 - [Lithuania](location)
@@ -82,13 +89,16 @@
 - [high](price)
 - Can you find me some restaurants?
 - [Delhi](location)
-- [Chinese]{"entity": "cuisine", "value": "chinese"}
 - Can you find me some [expensive]{"entity": "price", "value": "high"} restaurants in [Indore](location)?
+- [Ranchi](location)
+- Can you find me some [expensive]{"entity": "price", "value": "high"} restaurants?
+- Can you find me some [cheap]{"entity": "price", "value": "low"} restaurants?
 
 ## intent:share_email
 - yes. Please send it to [ahbcdj@dkj.com](mail_id)
 - yes. Please
 - no
+- No
 - not required
 - Please send it to [ahbcdj@dkj.com](mail_id)
 - Send it to [ahbcdj@dkj.com](mail_id)
@@ -103,7 +113,11 @@
 
 ## synonym:Delhi
 - New Delhi
+- Dilli
 
+## synonym:Mumbai
+- Bombay
+- Bambai
 ## synonym:bangalore
 - Bengaluru
 
@@ -121,6 +135,8 @@
 
 ## synonym:mid
 - moderate
+- moderately
+- mid-range
 
 ## synonym:vegetarian
 - veggie

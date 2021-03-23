@@ -3,10 +3,10 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- greet
+- share_email
 - restaurant_search
 - affirm
-- share_email
-- greet
 - goodbye
 - stop
 entities:
@@ -42,6 +42,10 @@ responses:
       title: South Indian
     - payload: North Indian
       title: North Indian
+    - payload: Mexican
+      title: Mexican
+    - payload: American
+      title: American
     text: what kind of cuisine would you like?
   utter_ask_howcanhelp:
   - text: how can I help you?
