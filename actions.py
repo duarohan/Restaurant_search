@@ -28,6 +28,19 @@ def RestaurantSearch(City,Cuisine,Price):
     TEMP = TEMP.sort_values(by='Aggregate rating', ascending=False)
     return TEMP[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
 
+def getRestaurantList(restaurants, maxNum):
+    index = 0
+    response =''
+    responseNum = maxNum
+    if(restaurants.shape[0] < maxNum):
+        responseNum = restaurants.shape[0]
+
+    for restaurant in restaurants.iloc[:responseNum].iterrows():
+        index = index + 1
+        restaurant = restaurant[1]
+        response = response + F"{index}. {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Aggregate rating']} with avg cost {restaurant['Average Cost for two']} \n\n"
+    return response
+	
 class ActionSearchRestaurants(Action):
 	def name(self):
 		return 'action_search_restaurants'
@@ -42,12 +55,8 @@ class ActionSearchRestaurants(Action):
 		if results.shape[0] == 0:
 			response= "no results"
 		else:
-			for restaurant in RestaurantSearch(loc,cuisine,price).iloc[:5].iterrows():
-				index = index + 1
-				restaurant = restaurant[1]
-				response=response + F"{index}. {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Address']} with avg cost {restaurant['Average Cost for two']} \n\n"
-		restaurant_list = response
-		dispatcher.utter_message("Showing you top rated restaurants:\n"+response)
+			dispatcher.utter_message("Showing you top rated restaurants:\n"+getRestaurantList(results, 5))
+			response = getRestaurantList(results, 10)
 		return [SlotSet('restaurant_list',response)]
 
 class ActionSendMail(Action):
