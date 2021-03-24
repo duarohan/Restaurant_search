@@ -83,7 +83,10 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
+  utter_non_operational:
+  - text: We do not operate in {location}. Try another one.
 actions:
+- action_check_location
 - action_search_restaurants
 - action_send_mail
 - utter_ask_copy
@@ -96,3 +99,4 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_mail_sent
+- utter_non_operational
