@@ -20,6 +20,7 @@
 ## intent:negative
 - No
 - not required
+- No Thanks !
 
 ## intent:goodbye
 - bye
@@ -96,6 +97,9 @@
 - [Ranchi](location)
 - Can you find me some [expensive]{"entity": "price", "value": "high"} restaurants?
 - Can you find me some [cheap]{"entity": "price", "value": "low"} restaurants?
+- Can you find me some [expensive]{"entity": "price", "value": "high"} [Chinese]{"entity": "cuisine", "value": "chinese"} restaurants in [Indore](location)
+- Can you find me some [expensive]{"entity": "price", "value": "high"} [Chinese]{"entity": "cuisine", "value": "chinese"} restaurants in [Nasik](location)?
+- [Delhi]{"entity": "location", "value": "New Delhi"}
 
 ## intent:share_email
 - yes. Please send it to [ahbcdj@dkj.com](mail_id)
@@ -106,24 +110,38 @@
 - [ishita.kekre@gmail.com](mail_id)
 - [duaanil10@gmail.com](mail_id)
 - [dua.meena5@gmail.com](mail_id)
+- [dua.meena5@gmail.com](mail_id)
+- [shalakhavirmani07@gmail.com](mail_id)
 
 ## intent:share_location
 - [Delhi](location)
 - [Ranchi](location)
 - [Mumbai](location)
 - [bangalore](location)
+- [Nasik](location)
+- [Belgaum](location)
+- [Bombay]{"entity": "location", "value": "Mumbai"}
+- [Bambai]{"entity": "location", "value": "Mumbai"}
+- [Belgaum](location)
+- [Panchkula](location)
+
 ## synonym:4
 - four
 
 ## synonym:Delhi
 - New Delhi
-- Dilli
 
 ## synonym:Mumbai
 - Bombay
 - Bambai
+
+## synonym:New Delhi
+- Delhi
+- Dilli
+
 ## synonym:bangalore
 - Bengaluru
+- banglore
 
 ## synonym:chinese
 - chines
@@ -133,6 +151,7 @@
 ## synonym:high
 - expensive
 - fine
+- good
 
 ## synonym:low
 - cheap
@@ -141,6 +160,7 @@
 - moderate
 - moderately
 - mid-range
+- budget
 
 ## synonym:vegetarian
 - veggie

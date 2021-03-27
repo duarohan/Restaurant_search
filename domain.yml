@@ -3,10 +3,12 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet
+- affirm
 - share_email
 - restaurant_search
-- affirm
+- share_location
+- greet
+- negative
 - goodbye
 - stop
 entities:
@@ -31,6 +33,9 @@ slots:
   restaurant_list:
     type: text
     influence_conversation: true
+  check_loc_flag:
+    type: bool
+    influence_conversation: true
 responses:
   utter_ask_cuisine:
   - buttons:
@@ -51,6 +56,8 @@ responses:
   - text: how can I help you?
   utter_ask_location:
   - text: In what location?
+  utter_another_location:
+  - text: Do you want to enter another location?
   utter_ask_price:
   - buttons:
     - payload: low
@@ -84,11 +91,12 @@ responses:
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
   utter_non_operational:
-  - text: We do not operate in {location}. Try another one.
+  - text: We do not operate in {location}.
 actions:
 - action_check_location
 - action_search_restaurants
 - action_send_mail
+- utter_another_location
 - utter_ask_copy
 - utter_ask_cuisine
 - utter_ask_email
