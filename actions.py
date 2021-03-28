@@ -3,7 +3,7 @@ from __future__ import division
 from __future__ import unicode_literals
 
 from rasa_sdk import Action
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet,AllSlotsReset
 import pandas as pd
 import json
 import smtplib
@@ -53,11 +53,12 @@ class ActionSearchRestaurants(Action):
 		response=""
 		index = 0
 		if results.shape[0] == 0:
-			response= "no results"
+			dispatcher.utter_message("No Matches Found. Can you re-enter the specification")
+			return [AllSlotsReset()]
 		else:
 			dispatcher.utter_message("Showing you top rated restaurants:\n"+getRestaurantList(results, 5))
 			response = getRestaurantList(results, 10)
-		return [SlotSet('restaurant_list',response)]
+			return [SlotSet('restaurant_list',response)]
 
 class ActionSendMail(Action):
 	def __init__(self):

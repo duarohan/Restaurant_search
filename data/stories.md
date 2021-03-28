@@ -6,7 +6,7 @@
     - slot{"location": "Gurgaon"}
     - slot{"price": "high"}
     - action_check_location
-    - slot{"check_loc_flag" : "True" }
+    - slot{"check_loc_flag" : true }
     - action_search_restaurants
     - slot{"restaurant_list": "1. Matchbox in 30, Ground Floor, Sector 29, Gurgaon rated 30, Ground Floor, Sector 29, Gurgaon with avg cost 1500 \n\n2. Yum Yum Cha in Cyber Hub, DLF Cyber City, Gurgaon rated Cyber Hub, DLF Cyber City, Gurgaon with avg cost 1800 \n\n3. Boombox Brewstreet in SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon rated SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon with avg cost 1600 \n\n4. Downtown - Diners & Living Beer Cafe in SCO 34, Main Market, Sector 29, Gurgaon rated SCO 34, Main Market, Sector 29, Gurgaon with avg cost 1800 \n\n5. Bunker in Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon rated Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon with avg cost 1300 \n\n"}
     - utter_ask_copy
@@ -20,19 +20,6 @@
     - utter_goodbye
 
 
-## complete path with incorrect location exit
-* greet
-    - utter_greet
-* restaurant_search{"price": "high", "cuisine": "chinese", "location": "Gurgaon"}
-    - slot{"cuisine": "chinese"}
-    - slot{"location": "Gurgaon"}
-    - slot{"price": "high"}
-    - action_check_location
-    - slot{"check_loc_flag" : "False"}
-    - utter_another_location
-* negative
-    - utter_goodbye
-
 
 ## complete path with incorrect location 1
 * greet
@@ -42,14 +29,14 @@
     - slot{"location": "Secunderabad"}
     - slot{"price": "high"}
     - action_check_location
-    - slot{"check_loc_flag" : "False"}
+    - slot{"check_loc_flag" : false}
     - utter_another_location
 * affirm
     - utter_ask_location
 * restaurant_search{"location": "Pune"}
     - slot{"location": "Pune"}
     - action_check_location
-    - slot{"check_loc_flag" : "True"}
+    - slot{"check_loc_flag" : true}
     - action_search_restaurants
     - slot{"restaurant_list": "1. Matchbox in 30, Ground Floor, Sector 29, Gurgaon rated 30, Ground Floor, Sector 29, Gurgaon with avg cost 1500 \n\n2. Yum Yum Cha in Cyber Hub, DLF Cyber City, Gurgaon rated Cyber Hub, DLF Cyber City, Gurgaon with avg cost 1800 \n\n3. Boombox Brewstreet in SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon rated SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon with avg cost 1600 \n\n4. Downtown - Diners & Living Beer Cafe in SCO 34, Main Market, Sector 29, Gurgaon rated SCO 34, Main Market, Sector 29, Gurgaon with avg cost 1800 \n\n5. Bunker in Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon rated Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon with avg cost 1300 \n\n"}
     - utter_ask_copy
@@ -70,12 +57,12 @@
     - slot{"location": "Panchkula"}
     - slot{"price": "mid"}
     - action_check_location
-    - slot{"check_loc_flag" : "False"}
+    - slot{"check_loc_flag" : false}
     - utter_another_location
 * restaurant_search{"location": "Kochi"}
     - slot{"location": "Kochi"}
     - action_check_location
-    - slot{"check_loc_flag" : "True"}
+    - slot{"check_loc_flag" : true}
     - action_search_restaurants
     - slot{"restaurant_list": "1. Matchbox in 30, Ground Floor, Sector 29, Gurgaon rated 30, Ground Floor, Sector 29, Gurgaon with avg cost 1500 \n\n2. Yum Yum Cha in Cyber Hub, DLF Cyber City, Gurgaon rated Cyber Hub, DLF Cyber City, Gurgaon with avg cost 1800 \n\n3. Boombox Brewstreet in SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon rated SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon with avg cost 1600 \n\n4. Downtown - Diners & Living Beer Cafe in SCO 34, Main Market, Sector 29, Gurgaon rated SCO 34, Main Market, Sector 29, Gurgaon with avg cost 1800 \n\n5. Bunker in Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon rated Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon with avg cost 1300 \n\n"}
     - utter_ask_copy
@@ -124,27 +111,30 @@
     - utter_mail_sent
 
 ## price and location specified
-* greet
-    - utter_greet
-* restaurant_search{"price": "high", "location": "Indore"}
-    - slot{"location": "Indore"}
+* restaurant_search{"price": "high", "location": "Mangalore"}
+    - slot{"location": "Mangalore"}
     - slot{"price": "high"}
     - action_check_location
-    - slot{"check_loc_flag" : "True"}
+    - slot{"check_loc_flag": true}
     - utter_ask_cuisine
-* restaurant_search{"cuisine": "chinese"}
-    - slot{"cuisine": "chinese"}
+* restaurant_search{"cuisine": "North Indian"}
+    - slot{"cuisine": "North Indian"}
     - action_search_restaurants
-    - slot{"restaurant_list": "1. Square - Sayaji Hotel in Sayaji Hotel, H-1, Scheme 54, Vijay Nagar, Indore rated Sayaji Hotel, H-1, Scheme 54, Vijay Nagar, Indore with avg cost 1500 \n\n2. Nafees Restaurant in 30-B, Apollo Avenue, Opposite Palasia Thana, Old Palasia, Indore rated 30-B, Apollo Avenue, Opposite Palasia Thana, Old Palasia, Indore with avg cost 800 \n\n3. JAL - A Jungle Restaurant in Behind Pushp Kunj Hospital, Khandwa Road, Bhawar Kuan, Indore rated Behind Pushp Kunj Hospital, Khandwa Road, Bhawar Kuan, Indore with avg cost 850 \n\n4. Pishori Restaurant in 910, Khatiwala Tank, Sapna Sangeeta, Indore rated 910, Khatiwala Tank, Sapna Sangeeta, Indore with avg cost 800 \n\n5. Vidorra in 1001, Rooftop, Shekhar Central, Palasia Square, New Palasia, Indore rated 1001, Rooftop, Shekhar Central, Palasia Square, New Palasia, Indore with avg cost 1200 \n\n"}
+    - slot{"restaurant_list": "1. Pallkhi Restaurant in 3rd Floor, Tej Tower, KMC Mercara Trunk Road, Balmatta, Mangalore rated 4.3 with avg cost 1200 \n\n2. Barbeque Nation in NO. 16-3-75/194 TO 16-3-75/206 KANKANADY MANGALURU, District - Dakshina Kannada rated 4.3 with avg cost 1600 \n\n3. Village Restaurant in Airport Road, Yeyyadi, Kavoor, Mangalore rated 4.2 with avg cost 1000 \n\n4. Gajalee Sea Food in Circuit House Compound, Opposite Kadri Police Station, Kadri, Mangalore rated 3.9 with avg cost 750 \n\n5. Liquid Lounge in KMC Mercara Trunk Road, Near Hotel Woodside, Balmatta, Mangalore rated 3.8 with avg cost 800 \n\n6. Village Restaurant in Airport Road, Yeyyadi, Kadri, Mangalore rated 3.7 with avg cost 1000 \n\n7. Barbeque Nation in 3rd Floor, MAK Mall, Kankanady, Mangalore rated 3.7 with avg cost 1600 \n\n8. Punjab Da Pind in 3rd Floor, Excel Mischief Mall, KS Rao Road, Mangalore, KS Rao Nagar, Mangalore rated 3.7 with avg cost 1000 \n\n9. Kabab Studio in Goldfinch Hotel, Bunts Hostel Road, Near Jyoti Circle, Balmatta, Mangalore rated 3.5 with avg cost 1500 \n\n"}
     - utter_ask_copy
 * affirm
     - utter_ask_email
-* share_email{"mail_id": "dua.meena5@gmail.com"}
-    - slot{"mail_id": "dua.meena5@gmail.com"}
+* share_email{"mail_id": "ishita.kekre@gmail.com"}
+    - slot{"mail_id": "ishita.kekre@gmail.com"}
     - action_send_mail
-    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "ishita.kekre@gmail.com"}
     - utter_mail_sent
     - utter_goodbye
+## price and location specified with incorrect location 1
+
+## price and location specified with incorrect location 2
+
+## price and location specified with incorrect location 3
 
 ## Nothing is specified
 * greet
@@ -154,7 +144,7 @@
 * restaurant_search{"location": "Delhi"}
     - slot{"location": "Delhi"}
     - action_check_location
-    - slot{"check_loc_flag" : "True"} 
+    - slot{"check_loc_flag" : true} 
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "North Indian"}
     - slot{"cuisine": "North Indian"}
@@ -174,6 +164,41 @@
 * affirm
     - utter_goodbye
 
+## Nothing is specified with incorrect location 1
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* share_location{"location": "Nasik"}
+    - slot{"location": "Nasik"}
+    - action_check_location
+    - slot{"check_loc_flag": false}
+    - utter_another_location
+* restaurant_search{"location": "New Delhi"}
+    - slot{"location": "New Delhi"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - utter_ask_price
+* restaurant_search{"price": "mid"}
+    - slot{"price": "mid"}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Echoes Satyaniketan in 17, 1st Floor, Opposite Sri Venkateshwara College, Satyaniketan, New Delhi rated 4.7 with avg cost 600 \n\n2. Punjabi Angithi in 32-22, A 4, DDA Market, Paschim Vihar, New Delhi rated 4.3 with avg cost 400 \n\n3. Chill'm Bar & Cafe in 38, Bunglow Road, Kamla Nagar, New Delhi rated 4.2 with avg cost 600 \n\n4. QRO Gourmeteriia BY DARK HOUSE KAFE in 9, Ground Floor, Benito Juarez Marg, Opposite Sri Venkateshwara College, Satyaniketan, New Delhi rated 4.2 with avg cost 600 \n\n5. London Street Kitchen in 4A-59, Old, Rajinder Nagar, New Delhi rated 4.2 with avg cost 600 \n\n6. Dilli Treat in 3/80, Shankar Road, Old, Rajinder Nagar, New Delhi rated 4.2 with avg cost 500 \n\n7. Happy Hakka in 28, Vasant Arcade, B7 Market, Vasant Kunj, New Delhi rated 4.1 with avg cost 650 \n\n8. Kennedy's in B-1, West Patel Nagar, New Delhi rated 4.1 with avg cost 400 \n\n9. Young Wild Free Cafe in 13, 1st Floor, Opposite Venkateswara College, Satyaniketan, New Delhi rated 4.1 with avg cost 500 \n\n10. Ever Bake in BN-2, Central Market, Shalimar Bagh, New Delhi rated 4.0 with avg cost 350 \n\n"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - utter_mail_sent
+    - utter_goodbye
+
+## Nothing is specified path with incorrect location 2
+## Nothing is specified path with incorrect location 3
+
 ## Only Price specified
 * restaurant_search{"price": "mid"}
     - slot{"price": "mid"}
@@ -181,7 +206,7 @@
 * restaurant_search{"location": "Delhi"}
     - slot{"location": "Delhi"}
     - action_check_location
-    - slot{"check_loc_flag" : "True"}
+    - slot{"check_loc_flag" : true}
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "Italian"}
     - slot{"cuisine": "Italian"}
@@ -198,6 +223,118 @@
 * affirm
     - utter_goodbye
 
+## Only Price specified with incorrect location 1
+## Only Price specified with incorrect location 2
+## Only Price specified with incorrect location 3
+
+## Only Cusine specified
+* greet
+    - utter_greet
+* restaurant_search{"cuisine": "Italian"}
+    - slot{"cuisine": "Italian"}
+    - utter_ask_price
+* restaurant_search{"price": "high"}
+    - slot{"price": "high"}
+    - utter_ask_location
+* share_location{"location": "Vizag"}
+    - slot{"location": "Vizag"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Flying Spaghetti Monster in 10-50-12/F2, Sai Dakshata Complex, Beside Lenovo Showroom,   Visakhapatnam, Waltair Uplands, Waltair Uplands, Vizag rated 4.4 with avg cost 1400 \n\n2. Upland Bistro in sai dakshita complex, 10-50-12/3,first floor, Waltair uplands,Waltair Main Road,Visakhapatnam, Andhra Pradesh 530003 India rated 4.4 with avg cost 1200 \n\n"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "duaanil10@gmail.com"}
+    - slot{"mail_id": "duaanil10@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "duaanil10@gmail.com"}
+    - utter_mail_sent
+
+
+## Only Cusine specified with incorrect location 1
+## Only Cusine specified with incorrect location 2
+## Only Cusine specified with incorrect location 3
+
+## Only Location specified
+* greet
+    - utter_greet
+* restaurant_search{"location": "Vadodara"}
+    - slot{"location": "Vadodara"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "Italian"}
+    - slot{"cuisine": "Italian"}
+    - utter_ask_price
+* restaurant_search{"price": "high"}
+    - slot{"price": "high"}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. La Quello - Mediterranean Kitchen in 1, Trivia, Natu Bhai Circle, Race Course Road, Vadiwadi, Vadodara rated 4.6 with avg cost 1300 \n\n2. That Place in 33, Sampatrao Colony, Alkapuri, Vadodara rated 4.4 with avg cost 1500 \n\n3. La Pino'z Pizza in Shop 1-4, Arundeep Complex, Opposite Adarsh Hospital, Near Chakli Circle, Race Course Road, Vadiwadi, Vadodara rated 4.3 with avg cost 800 \n\n4. Little Italy in 36, Alkapuri Society, Behind HDFC Bank, Alkapuri, Vadodara rated 4.1 with avg cost 1000 \n\n5. Meraki in Opposite Kunj Society, Near Nilkanthvarni Jewellers, Alkapuri, Vadodara rated 4.0 with avg cost 1200 \n\n6. El Amigos Kitchen in Ground Floor, Prestige Building, Race Course Road, Race Course Circle, Vadiwadi, Vadodara rated 3.5 with avg cost 800 \n\n"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - utter_mail_sent
+
+## Only Location specified with incorrect location 1
+## Only Location specified with incorrect location 2
+## Only Location specified with incorrect location 3
+
+## location and cuisine specified
+* greet
+    - utter_greet
+* restaurant_search{"location": "Indore", "cuisine": "Italian"}
+    - slot{"cuisine": "Italian"}
+    - slot{"location": "Indore"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_price
+* restaurant_search{"price": "high"}
+    - slot{"price": "high"}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Square - Sayaji Hotel in Sayaji Hotel, H-1, Scheme 54, Vijay Nagar, Indore rated 4.3 with avg cost 1500 \n\n2. Mama Loca in G-2, Princess Center 6/3, Opposite Manpasand Garden, New Palasia, Indore rated 4.2 with avg cost 900 \n\n3. Hobnob Gourmet Cafbar in Infiniti Hotel, 1C/CA, Scheme 94, Vijay Nagar, Indore rated 4.1 with avg cost 1950 \n\n4. Mocha in G-1 & 2, Prakrati Corporate Building, Race Course Area, YN Road, Indore rated 4.0 with avg cost 800 \n\n5. Cafe Palette in 136, Saket, Old Palasia, Indore rated 3.8 with avg cost 800 \n\n6. The Creative Kitchen - Radisson Blu Hotel in Radisson Blu Hotel, 12, Scheme 94C, Ring Road, Vijay Nagar, Indore rated 3.8 with avg cost 2000 \n\n"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "shalakhavirmani07@gmail.com"}
+    - slot{"mail_id": "shalakhavirmani07@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "shalakhavirmani07@gmail.com"}
+    - utter_mail_sent
+
+## location and cuisine specified with incorrect location 1
+## location and cuisine specified with incorrect location 2
+## location and cuisine specified with incorrect location 3
+
+## price and cuisine specified
+* greet
+    - utter_greet
+* restaurant_search{"price": "high", "cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - slot{"price": "high"}
+    - utter_ask_location
+* share_location{"location": "Varanasi"}
+    - slot{"location": "Varanasi"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Barbeque Nation in 3rd Floor, JHV Mall, The Mall Road, Varanasi Cantt, Nadesar, Varanasi rated 4.4 with avg cost 1500 \n\n2. Aman E Khas in Boradway Hotel, Near IP Vijay Mall, Bhelupur, Varanasi rated 4.1 with avg cost 850 \n\n"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - utter_mail_sent
+
+## price and cuisine specified with incorrect location 1
+## price and cuisine specified with incorrect location 2
+## price and cuisine specified with incorrect location 3
 
 ## User does not ask for a copy of email
 * greet
@@ -208,7 +345,7 @@
 * restaurant_search{"location": "Ranchi"}
     - slot{"location": "Ranchi"}
     - action_check_location
-    - slot{"check_loc_flag" : "True"}
+    - slot{"check_loc_flag" : true}
     - utter_ask_cuisine
 * restaurant_search{"cuisine": "North Indian"}
     - slot{"cuisine": "North Indian"}
@@ -217,3 +354,15 @@
     - utter_ask_copy
 * negative
     - utter_goodbye
+
+## No results Found Ask to start loop again
+* greet
+    - utter_greet
+* restaurant_search{"price": "low", "cuisine": "chinese", "location": "Mumbai"}
+    - slot{"cuisine": "chinese"}
+    - slot{"location": "Mumbai"}
+    - slot{"price": "low"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - action_search_restaurants
+    - reset_slots

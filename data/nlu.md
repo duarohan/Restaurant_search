@@ -100,6 +100,13 @@
 - Can you find me some [expensive]{"entity": "price", "value": "high"} [Chinese]{"entity": "cuisine", "value": "chinese"} restaurants in [Indore](location)
 - Can you find me some [expensive]{"entity": "price", "value": "high"} [Chinese]{"entity": "cuisine", "value": "chinese"} restaurants in [Nasik](location)?
 - [Delhi]{"entity": "location", "value": "New Delhi"}
+- find me some [expensive]{"entity": "price", "value": "high"} eat-outs in [Mangalore](location)?
+- find me some eat-outs in [Indore](location) serving [Italian](cuisine) food?
+- find me some [expensive]{"entity": "price", "value": "high"} eateries that serve [Chinese]{"entity": "cuisine", "value": "chinese"} food in [Varanasi](location)?
+- find me some [expensive]{"entity": "price", "value": "high"} eateries that serve [Chinese]{"entity": "cuisine", "value": "chinese"} food
+- find me some [Italian](cuisine) restaurants
+- find me restaurants in [Vadodara](location)
+- Can you find me some [expensive]{"entity": "price", "value": "high"} [Mexican](cuisine) restaurants in [Varanasi](location)?
 
 ## intent:share_email
 - yes. Please send it to [ahbcdj@dkj.com](mail_id)
@@ -110,8 +117,6 @@
 - [ishita.kekre@gmail.com](mail_id)
 - [duaanil10@gmail.com](mail_id)
 - [dua.meena5@gmail.com](mail_id)
-- [dua.meena5@gmail.com](mail_id)
-- [shalakhavirmani07@gmail.com](mail_id)
 
 ## intent:share_location
 - [Delhi](location)
@@ -122,18 +127,17 @@
 - [Belgaum](location)
 - [Bombay]{"entity": "location", "value": "Mumbai"}
 - [Bambai]{"entity": "location", "value": "Mumbai"}
-- [Belgaum](location)
 - [Panchkula](location)
+- [Varanasi](location)
+- [Vizag](location)
 
 ## synonym:4
 - four
 
-## synonym:Delhi
-- New Delhi
-
 ## synonym:Mumbai
 - Bombay
 - Bambai
+- mumbai
 
 ## synonym:New Delhi
 - Delhi
@@ -161,10 +165,6 @@
 - moderately
 - mid-range
 - budget
-
-## synonym:vegetarian
-- veggie
-- vegg
 
 ## regex:greet
 - hey[^\s]*

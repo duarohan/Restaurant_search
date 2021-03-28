@@ -3,11 +3,11 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- affirm
-- share_email
-- restaurant_search
-- share_location
 - greet
+- restaurant_search
+- affirm
+- share_location
+- share_email
 - negative
 - goodbye
 - stop
@@ -90,8 +90,6 @@ responses:
   - text: hey there! How may i help you
   - text: Hi, How can I help you!
   - text: Hey, How is it going. How May I help you Today
-  utter_non_operational:
-  - text: We do not operate in {location}.
 actions:
 - action_check_location
 - action_search_restaurants
@@ -107,4 +105,3 @@ actions:
 - utter_goodbye
 - utter_greet
 - utter_mail_sent
-- utter_non_operational
