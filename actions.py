@@ -103,7 +103,7 @@ class ActionCheckLocation(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		loc = tracker.get_slot('location')
-		if ((loc not in WeOperate) or (ZomatoData[ZomatoData.City == loc].shape[0] < 5)):
+		if ((loc.lower() not in map(str.lower,WeOperate)) or (ZomatoData[ZomatoData['City'].apply(lambda x: loc.lower() in x.lower())].shape[0] < 5)):
 			dispatcher.utter_message(text="We do not operate in this location.")
 			return [SlotSet('check_loc_flag',False)]
 		else :

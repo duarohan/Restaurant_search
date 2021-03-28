@@ -62,17 +62,18 @@
 * restaurant_search{"location": "Kochi"}
     - slot{"location": "Kochi"}
     - action_check_location
+    - slot{"check_loc_flag" : false }
+    - utter_another_location
+* affirm
+    - utter_ask_location
+* restaurant_search{"location": "Vizag"}
+    - slot{"location": "Vizag"}
+    - action_check_location
     - slot{"check_loc_flag" : true}
     - action_search_restaurants
     - slot{"restaurant_list": "1. Matchbox in 30, Ground Floor, Sector 29, Gurgaon rated 30, Ground Floor, Sector 29, Gurgaon with avg cost 1500 \n\n2. Yum Yum Cha in Cyber Hub, DLF Cyber City, Gurgaon rated Cyber Hub, DLF Cyber City, Gurgaon with avg cost 1800 \n\n3. Boombox Brewstreet in SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon rated SCO 53, 1st Floor, Main Market, Sector 29, Gurgaon with avg cost 1600 \n\n4. Downtown - Diners & Living Beer Cafe in SCO 34, Main Market, Sector 29, Gurgaon rated SCO 34, Main Market, Sector 29, Gurgaon with avg cost 1800 \n\n5. Bunker in Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon rated Shop 204-206, Cross Point Mall, DLF Phase 4, Gurgaon with avg cost 1300 \n\n"}
     - utter_ask_copy
-* affirm
-    - utter_ask_email
-* share_email{"mail_id": "duaanil10@gmail.com"}
-    - slot{"mail_id": "duaanil10@gmail.com"}
-    - action_send_mail
-    - slot{"mail_id": "duaanil10@gmail.com"}
-    - utter_mail_sent
+* negative
     - utter_goodbye
 
 ## complete path with incorrect location 3
@@ -130,11 +131,38 @@
     - slot{"mail_id": "ishita.kekre@gmail.com"}
     - utter_mail_sent
     - utter_goodbye
+
 ## price and location specified with incorrect location 1
+* greet
+    - utter_greet
+* restaurant_search{"price": "high", "location": "Jalna"}
+    - slot{"location": "Jalna"}
+    - slot{"price": "high"}
+    - action_check_location
+    - slot{"check_loc_flag" : false}
+    - utter_another_location
+* affirm 
+    - utter_ask_location
+* restaurant_search{"location": "Amritsar"}
+    - slot{"location": "Amritsar"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "chinese"}
+    - slot{"cuisine": "chinese"}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Square - Sayaji Hotel in Sayaji Hotel, H-1, Scheme 54, Vijay Nagar, Indore rated Sayaji Hotel, H-1, Scheme 54, Vijay Nagar, Indore with avg cost 1500 \n\n2. Nafees Restaurant in 30-B, Apollo Avenue, Opposite Palasia Thana, Old Palasia, Indore rated 30-B, Apollo Avenue, Opposite Palasia Thana, Old Palasia, Indore with avg cost 800 \n\n3. JAL - A Jungle Restaurant in Behind Pushp Kunj Hospital, Khandwa Road, Bhawar Kuan, Indore rated Behind Pushp Kunj Hospital, Khandwa Road, Bhawar Kuan, Indore with avg cost 850 \n\n4. Pishori Restaurant in 910, Khatiwala Tank, Sapna Sangeeta, Indore rated 910, Khatiwala Tank, Sapna Sangeeta, Indore with avg cost 800 \n\n5. Vidorra in 1001, Rooftop, Shekhar Central, Palasia Square, New Palasia, Indore rated 1001, Rooftop, Shekhar Central, Palasia Square, New Palasia, Indore with avg cost 1200 \n\n"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - utter_mail_sent
+    - utter_goodbye
+    - utter_goodbye
 
-## price and location specified with incorrect location 2
-
-## price and location specified with incorrect location 3
 
 ## Nothing is specified
 * greet
@@ -164,13 +192,23 @@
 * affirm
     - utter_goodbye
 
-## Nothing is specified with incorrect location 1
+## Nothing is specified incorrect location
 * greet
     - utter_greet
 * restaurant_search
     - utter_ask_location
-* share_location{"location": "Nasik"}
-    - slot{"location": "Nasik"}
+* restaurant_search{"location": "Rome"}
+    - slot{"location": "Rome"}
+    - action_check_location
+    - slot{"check_loc_flag" : false} 
+    - utter_another_location
+* share_location{"location": "Belgaum"}
+    - slot{"location": "Belgaum"}
+    - action_check_location
+    - slot{"check_loc_flag": false}
+    - utter_another_location
+* share_location{"location": "Panchkula"}
+    - slot{"location": "Panchkula"}
     - action_check_location
     - slot{"check_loc_flag": false}
     - utter_another_location
@@ -179,25 +217,23 @@
     - action_check_location
     - slot{"check_loc_flag": true}
     - utter_ask_cuisine
-* restaurant_search{"cuisine": "chinese"}
-    - slot{"cuisine": "chinese"}
+* restaurant_search{"cuisine": "South Indian"}
+    - slot{"cuisine": "South Indian"}
     - utter_ask_price
-* restaurant_search{"price": "mid"}
-    - slot{"price": "mid"}
+* restaurant_search{"price": "high"}
+    - slot{"price": "high"}
     - action_search_restaurants
-    - slot{"restaurant_list": "1. Echoes Satyaniketan in 17, 1st Floor, Opposite Sri Venkateshwara College, Satyaniketan, New Delhi rated 4.7 with avg cost 600 \n\n2. Punjabi Angithi in 32-22, A 4, DDA Market, Paschim Vihar, New Delhi rated 4.3 with avg cost 400 \n\n3. Chill'm Bar & Cafe in 38, Bunglow Road, Kamla Nagar, New Delhi rated 4.2 with avg cost 600 \n\n4. QRO Gourmeteriia BY DARK HOUSE KAFE in 9, Ground Floor, Benito Juarez Marg, Opposite Sri Venkateshwara College, Satyaniketan, New Delhi rated 4.2 with avg cost 600 \n\n5. London Street Kitchen in 4A-59, Old, Rajinder Nagar, New Delhi rated 4.2 with avg cost 600 \n\n6. Dilli Treat in 3/80, Shankar Road, Old, Rajinder Nagar, New Delhi rated 4.2 with avg cost 500 \n\n7. Happy Hakka in 28, Vasant Arcade, B7 Market, Vasant Kunj, New Delhi rated 4.1 with avg cost 650 \n\n8. Kennedy's in B-1, West Patel Nagar, New Delhi rated 4.1 with avg cost 400 \n\n9. Young Wild Free Cafe in 13, 1st Floor, Opposite Venkateswara College, Satyaniketan, New Delhi rated 4.1 with avg cost 500 \n\n10. Ever Bake in BN-2, Central Market, Shalimar Bagh, New Delhi rated 4.0 with avg cost 350 \n\n"}
+    - slot{"restaurant_list": "1. Kopper Kadai in J2/6B, 1st & 2nd Floor, B.K. Dutta Market, Rajouri Garden, New Delhi rated J2/6B, 1st & 2nd Floor, B.K. Dutta Market, Rajouri Garden, New Delhi with avg cost 1400 \n\n2. Zabardast Indian Kitchen in E-13/29, Ground Floor, Middle Circle, Connaught Place, New Delhi rated E-13/29, Ground Floor, Middle Circle, Connaught Place, New Delhi with avg cost 1800 \n\n3. Band Baaja Baaraat in A-6 Ground Floor, Vishal Enclave, Rajouri Garden, New Delhi rated A-6 Ground Floor, Vishal Enclave, Rajouri Garden, New Delhi with avg cost 1300 \n\n4. Midnight Hunger Hub in Janakpuri, New Delhi rated Janakpuri, New Delhi with avg cost 800 \n\n5. Cafe Lota in National Crafts Museum, Gate 2, Bhairon Marg, Pragati Maidan, New Delhi rated National Crafts Museum, Gate 2, Bhairon Marg, Pragati Maidan, New Delhi with avg cost 1200 \n\n"}
     - utter_ask_copy
 * affirm
     - utter_ask_email
-* share_email{"mail_id": "dua.meena5@gmail.com"}
-    - slot{"mail_id": "dua.meena5@gmail.com"}
+* share_email{"mail_id": "shalakhavirmani07@gmail.com"}
+    - slot{"mail_id": "shalakhavirmani07@gmail.com"}
     - action_send_mail
-    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "shalakhavirmani07@gmail.com"}
     - utter_mail_sent
+* affirm
     - utter_goodbye
-
-## Nothing is specified path with incorrect location 2
-## Nothing is specified path with incorrect location 3
 
 ## Only Price specified
 * restaurant_search{"price": "mid"}
@@ -223,9 +259,29 @@
 * affirm
     - utter_goodbye
 
-## Only Price specified with incorrect location 1
-## Only Price specified with incorrect location 2
-## Only Price specified with incorrect location 3
+## Only Price specified with incorrect location
+* greet
+    - utter_greet
+* restaurant_search{"price": "low"}
+    - slot{"price": "low"}
+    - utter_ask_location
+* restaurant_search{"location": "Ranchi"}
+    - slot{"location": "Ranchi"}
+    - action_check_location
+    - slot{"check_loc_flag" : false}
+    - utter_another_location
+* restaurant_search{"location": "Patna"}
+    - slot{"location": "Patna"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "American"}
+    - slot{"cuisine": "American"}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Chicken Plaza in Kamil Bulke Path, , Fatima Nagar, Dangartoli ,  Ranchi rated Kamil Bulke Path, , Fatima Nagar, Dangartoli ,  Ranchi with avg cost 200 \n\n"}
+    - utter_ask_copy
+* negative
+    - utter_goodbye
 
 ## Only Cusine specified
 * greet
@@ -253,8 +309,53 @@
 
 
 ## Only Cusine specified with incorrect location 1
-## Only Cusine specified with incorrect location 2
-## Only Cusine specified with incorrect location 3
+* greet
+    - utter_greet
+* restaurant_search{"cuisine": "Mexican"}
+    - slot{"cuisine": "Mexican"}
+    - utter_ask_location
+* restaurant_search{"location": "Ranchi"}
+    - slot{"location": "Ranchi"}
+    - action_check_location
+    - slot{"check_loc_flag" : false}
+    - utter_another_location
+* restaurant_search{"location": "Patna"}
+    - slot{"location": "Patna"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_price
+* restaurant_search{"price": "mid"}
+    - slot{"price": "mid"}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Chicken Plaza in Kamil Bulke Path, , Fatima Nagar, Dangartoli ,  Ranchi rated Kamil Bulke Path, , Fatima Nagar, Dangartoli ,  Ranchi with avg cost 200 \n\n"}
+    - utter_ask_copy
+* negative
+    - utter_goodbye
+
+## Only cuisine specified 2
+* greet
+    - utter_greet
+* restaurant_search{"cuisine": "Chinese"}
+    - slot{"cuisine": "Chinese"}
+    - utter_ask_location
+* restaurant_search{"location": "Ranchi"}
+    - slot{"location": "Ranchi"}
+    - action_check_location
+    - slot{"check_loc_flag" : true}
+    - utter_ask_price
+* restaurant_search{"price": "mid"}
+    - slot{"price": "mid"}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Chicken Plaza in Kamil Bulke Path, , Fatima Nagar, Dangartoli ,  Ranchi rated Kamil Bulke Path, , Fatima Nagar, Dangartoli ,  Ranchi with avg cost 200 \n\n"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - utter_mail_sent
+    - utter_goodbye
 
 ## Only Location specified
 * greet
@@ -280,9 +381,81 @@
     - slot{"mail_id": "dua.meena5@gmail.com"}
     - utter_mail_sent
 
-## Only Location specified with incorrect location 1
-## Only Location specified with incorrect location 2
-## Only Location specified with incorrect location 3
+## Only Location specified with no email
+* greet
+    - utter_greet
+* restaurant_search{"location": "Noida"}
+    - slot{"location": "Noida"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "American"}
+    - slot{"cuisine": "American"}
+    - utter_ask_price
+* restaurant_search{"price": "mid"}
+    - slot{"price": "mid"}
+    - action_search_restaurants
+    - slot{"restaurant_list" :" 1. Music & Mountains - Hillside Cafe in M-23, M Block Market, Greater Kailash (GK) 1, New Delhi rated M-23, M Block Market, Greater Kailash (GK) 1, New Delhi with avg cost 21001"}
+    - utter_ask_copy
+* negative
+    - utter_goodbye
+
+## Only Location Specified wrong location no email
+* restaurant_search{"location": "Lonavla"}
+    - slot{"location": "Lonavla"}
+    - action_check_location
+    - slot{"check_loc_flag" : false}
+    - utter_another_location
+* restaurant_search{"location": "Mysore"}
+    - slot{"location": "Mysore"}
+    - action_check_location
+    - slot{"check_loc_flag": true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "American"}
+    - slot{"cuisine": "American"}
+    - utter_ask_price
+* restaurant_search{"price": "low"}
+    - slot{"price": "low"}
+    - action_search_restaurants
+    - slot{"restaurant_list" : "1. Music & Mountains - Hillside Cafe in M-23, M Block Market, Greater Kailash (GK) 1, New Delhi rated M-23, M Block Market, Greater Kailash (GK) 1, New Delhi with avg cost 21001"}
+    - utter_ask_copy
+* negative
+    - utter_goodbye
+
+## Only Location Specified wrong location 2 with email
+* restaurant_search{"location": "Colaba"}
+    - slot{"location": "Colaba"}
+    - action_check_location
+    - slot{"check_loc_flag" : false}
+    - utter_another_location
+* affirm
+    - utter_ask_location
+* restaurant_search{"location": "Ranchi"}
+    - slot{"location": "Ranchi"}
+    - action_check_location
+    - slot{"check_loc_flag": false}
+    - utter_another_location
+* restaurant_search{"location": "Patna"}
+    - slot{"location": "Patna"}
+    - action_check_location
+    - slot{"check_loc_flag": true} 
+    - utter_ask_cuisine
+* restaurant_search{"cuisine": "North Indian"}
+    - slot{"cuisine": "North Indian"}
+    - utter_ask_price
+* restaurant_search{"price": "low"}
+    - slot{"price": "low"}
+    - action_search_restaurants
+    - slot{"restaurant_list" : "1. Music & Mountains - Hillside Cafe in M-23, M Block Market, Greater Kailash (GK) 1, New Delhi rated M-23, M Block Market, Greater Kailash (GK) 1, New Delhi with avg cost 21001"}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "dua.meena5@gmail.com"}
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "dua.meena5@gmail.com"}
+    - utter_mail_sent
+
 
 ## location and cuisine specified
 * greet
@@ -305,10 +478,7 @@
     - action_send_mail
     - slot{"mail_id": "shalakhavirmani07@gmail.com"}
     - utter_mail_sent
-
-## location and cuisine specified with incorrect location 1
-## location and cuisine specified with incorrect location 2
-## location and cuisine specified with incorrect location 3
+    - utter_goodbye
 
 ## price and cuisine specified
 * greet
@@ -331,10 +501,31 @@
     - action_send_mail
     - slot{"mail_id": "dua.meena5@gmail.com"}
     - utter_mail_sent
+    - utter_goodbye
 
-## price and cuisine specified with incorrect location 1
-## price and cuisine specified with incorrect location 2
-## price and cuisine specified with incorrect location 3
+## price and cuisine 2
+* greet
+    - utter_greet
+* restaurant_search{"price": "low", "cuisine": "South Indian"}
+    - slot{"cuisine": "South Indian"}
+    - slot{"price": "low"}
+    - utter_ask_location
+* restaurant_search{"location": "Mangalore"}
+    - slot{"location": "Mangalore"}
+    - action_check_location
+    - slot{"check_loc_flag" : true}
+    - action_search_restaurants
+    - slot{"restaurant_list": "1. Square - Sayaji Hotel in Sayaji Hotel, H-1, Scheme 54, Vijay Nagar, Indore rated Sayaji Hotel, H-1, Scheme 54, Vijay Nagar, Indore with avg cost 1500 "}
+    - utter_ask_copy
+* affirm
+    - utter_ask_email
+* share_email{"mail_id": "prajaktid@gmail.com"}
+    - slot{"mail_id": "prajaktid@gmail.com"}
+    - action_send_mail
+    - slot{"mail_id": "prajaktid@gmail.com"}
+    - utter_mail_sent
+* affirm
+    - utter_goodbye
 
 ## User does not ask for a copy of email
 * greet
